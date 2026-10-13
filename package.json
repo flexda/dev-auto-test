@@ -1,0 +1,41 @@
+{
+  "name": "autoforge",
+  "version": "0.0.0",
+  "type": "module",
+  "imports": {
+    "#*": "./agent/*",
+    "#evals/*": "./evals/*"
+  },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env --import tsx src/server.ts",
+    "start": "node --env-file-if-exists=.env --import tsx src/server.ts",
+    "build": "tsc --noEmit && eve build",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "agent:dev": "eve dev --no-ui",
+    "agent:chat": "eve dev",
+    "agent:build": "eve build"
+  },
+  "dependencies": {
+    "@vercel/connect": "2.2.0",
+    "ai": "^7.0.137",
+    "eve": "^0.78.0",
+    "just-bash": "3.6.0",
+    "node": "24.21.0",
+    "quickjs-emscripten": "0.32.0",
+    "tsx": "4.23.15",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "24.x",
+    "typescript": "7.0.2"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "overrides": {
+    "guarded-fetch": {
+      "undici": "7.29.1"
+    }
+  }
+}
